@@ -25,17 +25,16 @@ GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "YOUR_GEMINI_API_KEY_HERE")
 MEMOS_API_KEY  = os.getenv("MEMOS_API_KEY",  "YOUR_MEMOS_API_KEY_HERE")
 
 # ── MemOS Cloud endpoints ─────────────────────────────────────────────────────
-MEMOS_BASE_URL   = "https://memos.memtensor.cn/api/openmem/v1"
-MEMOS_ADD_URL    = f"{MEMOS_BASE_URL}/add/message"
-MEMOS_SEARCH_URL = f"{MEMOS_BASE_URL}/search/memory"
+MEMOS_BASE_URL   = "http://localhost:8000"
+MEMOS_ADD_URL    = f"{MEMOS_BASE_URL}/product/add"
+MEMOS_SEARCH_URL = f"{MEMOS_BASE_URL}/product/search"
 
 MEMOS_HEADERS = {
-    "Authorization": f"Bearer {MEMOS_API_KEY}",
     "Content-Type": "application/json",
 }
 
 # ── Gemini model ──────────────────────────────────────────────────────────────
-GEMINI_MODEL = "gemini-2.0-flash"   # cheap and fast; swap to gemini-2.0-pro if needed
+GEMINI_MODEL = "gemini-3.5-flash-lite"   # cheap and fast; swap to gemini-2.0-pro if needed
 
 # ── Experiment settings ───────────────────────────────────────────────────────
 N_TRIALS       = 10    # trials per condition (increase to 20 for final results)

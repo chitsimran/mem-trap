@@ -28,11 +28,10 @@ print("  OK: both keys are set")
 # 2. Test Gemini
 print("\n[2] Testing Gemini connection...")
 try:
-    import google.generativeai as genai
+    import google.genai as genai
     from config import GEMINI_MODEL
-    genai.configure(api_key=GEMINI_API_KEY)
-    model = genai.GenerativeModel(GEMINI_MODEL)
-    result = model.generate_content("Say 'MemTrap OK' and nothing else.")
+    client = genai.Client(api_key=GEMINI_API_KEY)
+    result = client.models.generate_content(model=GEMINI_MODEL, contents="Say 'MemTrap OK' and nothing else.")
     print(f"  OK: Gemini responded: {result.text.strip()[:50]}")
 except Exception as e:
     print(f"  ERROR: {e}")
